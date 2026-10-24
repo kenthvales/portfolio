@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kenth Bryan C. Vales | Student Web Developer</title>
+<meta name="description" content="Portfolio of Kenth Bryan C. Vales: a student web developer learning to build clean, responsive websites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F8FA; --card:#FFFFFF; --ink:#0F1A2B; --text:#2B3648; --muted:#5E6A7E; --line:#DFE3EA;
+  --teal:#0F766E; --teal-d:#0A4F4A; --tint:#E3F2F0; --night:#0F1A2B;
+  --font:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.125rem/1.7 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+a:hover{color:var(--teal-d)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+h1,h2,h3{color:var(--ink);margin:0;letter-spacing:-.03em;line-height:1.08}
+.wrap{max-width:72rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+.sr{position:absolute;left:-999px}.sr:focus{left:1rem;top:1rem;background:var(--teal);color:#fff;padding:.5rem 1rem;z-index:50}
+
+header{position:sticky;top:0;z-index:20;background:rgba(247,248,250,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:4.25rem;gap:1rem}
+.logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:1.1rem}
+header nav{display:flex;align-items:center;gap:clamp(.9rem,3vw,2rem);font-weight:600;font-size:.98rem}
+header nav a{color:var(--text);text-decoration:none}
+header nav a:hover{color:var(--teal)}
+header nav a.cta{background:var(--ink);color:#fff;padding:.5rem 1.15rem;border-radius:99px}
+header nav a.cta:hover{background:var(--teal);color:#fff}
+@media(max-width:600px){header nav a.hide{display:none}}
+
+/* hero with portrait */
+.hero{padding:clamp(3rem,7vw,6rem) 0 clamp(3.5rem,8vw,6.5rem)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.portrait-col{order:-1;max-width:20rem}}
+.badge{display:inline-flex;align-items:center;gap:.6rem;background:var(--tint);color:var(--teal-d);font-weight:700;font-size:.95rem;padding:.4rem 1rem;border-radius:99px}
+.badge::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--teal)}
+h1{font-size:clamp(2.8rem,7vw,5.4rem);font-weight:800;margin:1.25rem 0 1.25rem}
+.hero .intro{font-size:1.3rem;line-height:1.55;color:var(--text);max-width:34rem;margin:0}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{display:inline-block;padding:.85rem 1.6rem;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--ink);transition:background .2s,color .2s,border-color .2s}
+.btn.pri{background:var(--ink);color:#fff}
+.btn.pri:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.sec{color:var(--ink)}
+.btn.sec:hover{border-color:var(--teal);color:var(--teal)}
+
+.portrait-col{position:relative;justify-self:end;width:100%}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:24px;background:linear-gradient(160deg,var(--tint),#C9E3E0);overflow:hidden;display:grid;place-items:center;
+  font:800 5rem var(--font);color:var(--teal);box-shadow:0 30px 60px -30px rgba(15,26,43,.45)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.portrait-col::before{content:"";position:absolute;inset:1.1rem -1.1rem -1.1rem 1.1rem;border:2px solid var(--teal);border-radius:24px;z-index:-1}
+.chip{position:absolute;left:-1.25rem;bottom:2rem;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.8rem 1.1rem;box-shadow:0 14px 30px -16px rgba(15,26,43,.4);font-size:.95rem;line-height:1.35}
+.chip b{display:block;color:var(--ink)}
+@media(max-width:860px){.chip{left:.75rem}}
+
+/* sections */
+section.s{padding:clamp(3.5rem,8vw,6rem) 0}
+.sec-head{margin-bottom:2.5rem;max-width:42rem}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:800}
+.sec-head p{margin:.8rem 0 0;color:var(--muted)}
+.band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,6vw,5rem)}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 1.15rem;max-width:38rem}
+.lead{font-size:1.5rem;line-height:1.4;font-weight:600;color:var(--ink)}
+.facts{margin:0;padding:0;list-style:none;border-top:1px solid var(--line);align-self:start}
+.facts li{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.facts b{color:var(--ink)}.facts span{color:var(--muted);text-align:right}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:860px){.skills{grid-template-columns:1fr}}
+.skill{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:1.6rem}
+.skill h3{font-size:1.3rem;margin-bottom:1rem}
+.skill ul{list-style:none;margin:0;padding:0}
+.skill li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-top:1px solid var(--line);font-weight:600;color:var(--ink)}
+.skill li span{font-weight:500;color:var(--teal);font-size:.95rem}
+
+.project{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:center;padding:2.5rem 0;border-top:1px solid var(--line)}
+.project:first-of-type{border-top:0;padding-top:0}
+.project:nth-of-type(even){grid-template-columns:1fr 1.15fr}
+.project:nth-of-type(even) .shot{order:2}
+@media(max-width:860px){.project,.project:nth-of-type(even){grid-template-columns:1fr;gap:1.25rem}.project:nth-of-type(even) .shot{order:0}}
+.shot{aspect-ratio:16/10;border-radius:18px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:.95rem;padding:1.5rem;overflow:hidden;box-shadow:0 24px 48px -32px rgba(15,26,43,.45)}
+.shot{position:relative}.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:var(--card)}
+.tag{display:inline-block;color:var(--teal);font-weight:700;font-size:.95rem;margin-bottom:.5rem}
+.project h3{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:800;margin-bottom:.9rem}
+.project p{margin:0 0 1rem}
+.project dl{margin:1.25rem 0;display:grid;grid-template-columns:6.5rem 1fr;gap:.5rem 1rem;font-size:1.02rem}
+.project dt{font-weight:700;color:var(--ink)}.project dd{margin:0;color:var(--muted)}
+.links{display:flex;gap:1.5rem;font-weight:700}
+
+.contact{background:var(--night);color:#C9D1DE;border-radius:28px;padding:clamp(2rem,6vw,4.5rem);display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem;align-items:center}
+@media(max-width:860px){.contact{grid-template-columns:1fr}}
+.contact h2{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800}
+.contact p{margin:1rem 0 0;font-size:1.15rem}
+.contact ul{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+.contact li a,.contact li button{display:flex;justify-content:space-between;align-items:center;width:100%;gap:1rem;padding:1rem 1.2rem;border:1px solid #2F3E57;border-radius:12px;background:transparent;color:#fff;text-decoration:none;font:600 1rem var(--font);cursor:pointer}
+.contact li a:hover,.contact li button:hover{background:#17263E;border-color:#5EEAD4}
+.contact small{color:#9FB0C8;font:500 .92rem var(--font)}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.97rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Kenth Bryan C. Vales</a>
+    <nav aria-label="Main">
+      <a class="hide" href="#about">About</a>
+      <a class="hide" href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a class="cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="badge">Student web developer</span>
+      <h1>Hi, I'm Kenth Bryan C. Vales</h1>
+      <p class="intro">I am learning to design and build clean, responsive websites with HTML, CSS, and JavaScript. This portfolio shows what I am working on and how I am growing.</p>
+      <div class="btns">
+        <a class="btn pri" href="#work">View my work</a>
+        <a class="btn sec" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="portrait-col">
+      <!-- YOUR PHOTO: save it as images/profile.jpg (portrait, about 800 x 1000 px, under 500 KB). -->
+      <div class="portrait">
+        <span aria-hidden="true">KV</span>
+        <img src="KENTH.jpg" alt="Photo of Kenth Bryan C. Vales" width="800" height="1000" onerror="this.remove()">
+      </div>
+      <div class="chip"><b>Student web developer</b>Portfolio 2026</div>
+    </div>
+  </div>
+</div>
+
+<div class="band"><section class="s" id="about"><div class="wrap about">
+  <div>
+    <div class="sec-head"><h2>About me</h2></div>
+    <p class="lead">I like building websites that are simple to read and easy to use on any screen.</p>
+    <p>I am a student learning web development step by step. I am practicing how to turn a design into a working website and how to publish it online.</p>
+    <p>I test my pages on a phone and a computer, check every link, and keep improving them as I learn.</p>
+  </div>
+  <ul class="facts" aria-label="Quick facts">
+    <li><b>Role</b><span>Student web developer</span></li>
+    <li><b>Focus</b><span>Front-end web development</span></li>
+    <li><b>Tools</b><span>VS Code</span></li>
+    <li><b>Learning now</b><span>HTML, CSS, JavaScript, Git</span></li>
+  </ul>
+</div></section></div>
+
+<section class="s" id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>Skills</h2><p>Tools I am learning and practicing right now.</p></div>
+    <div class="skills">
+      <div class="skill"><h3>Build</h3><ul>
+        <li>HTML<span>Learning</span></li><li>CSS<span>Learning</span></li><li>JavaScript<span>Learning</span></li></ul></div>
+      <div class="skill"><h3>Design</h3><ul>
+        <li>Responsive layout<span>Learning</span></li><li>Typography<span>Learning</span></li><li>Figma<span>Learning</span></li></ul></div>
+      <div class="skill"><h3>Workflow</h3><ul>
+        <li>VS Code<span>Learning</span></li><li>Git and GitHub<span>Learning</span></li><li>GitHub Pages<span>Learning</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<div class="band"><section class="s" id="work"><div class="wrap">
+  <div class="sec-head"><h2>Selected work</h2><p>Work I have built while learning.</p></div>
+
+  <article class="project">
+    <div class="shot"><span>Add your screenshot here:<br>images/project1.png</span><img src="void battleground.png" alt="Void BattleGrounds game thumbnail" onerror="this.remove()"></div>
+    <div>
+      <span class="tag">Game project</span>
+      <h3>Void BattleGrounds</h3>
+      <p>A fast-paced hand-to-hand combat game where players fight each other using punches, combos, blocks, dashes, and movement. When an opponent is low on health, you can use a Finisher to end the fight.</p>
+      <dl><dt>My role</dt><dd>Programmer</dd><dt>Tools</dt><dd>Roblox Studio</dd><dt>Learned</dt><dd>How to script combat features like attacks, blocks, and dashes in a game</dd></dl>
+      <div class="links"><a href="https://www.roblox.com/share?code=79ac9279c0c5574c990d7c0ebe5adc2f&type=ExperienceDetails&stamp=1792819051638" rel="noopener">Play the game</a></div>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="shot"><span>Add your screenshot here:<br>images/project2.png</span><img src="intelliview.jpg" alt="Screenshot of project 2" onerror="this.remove()"></div>
+    <div>
+      <span class="tag">Capstone Project</span>
+      <h3>IntelliView</h3>
+      <p>IntelliView is an AI-driven, web-based interview coaching system designed to help fourth-year BSIT students prepare for job interviews through virtual mock interviews and AI-assisted analysis of their verbal and non-verbal communication. It provides feedback, personalized recommendations, and progress tracking to help students identify areas for improvement and improve their interview readiness.</p>
+      <dl><dt>My role</dt><dd>Worked as a programmer and UI/UX designer, contributing to the development of the IntelliView website, designing user interfaces, implementing web features, and integrating backend services and AI technologies.</dd><dt>Tools</dt><dd>HTML, CSS, JavaScript, Django, Django REST Framework, PostgreSQL, OpenAI Whisper, MediaPipe, Visual Studio Code,and Figma.</dd><dt>Learned</dt><dd>Learned how to develop a full-stack web application, connect frontend and backend services through REST APIs, work with AI technologies, and create a user-friendly interview practice platform.</dd></dl>
+  
+    </div>
+  </article>
+
+</div></section></div>
+
+<section class="s" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Let's talk</h2>
+        <p>Want to say hello, share feedback, or work together? Send me a message.</p>
+      </div>
+      <ul>
+  <li><a href="mailto:kenth.vales@gmail.com"><span>Email</span><small>kenth.vales@gmail.com</small></a></li>
+  <li><button type="button" id="copy"><span>Copy email</span><small id="msg">Click to copy</small></button></li>
+  <li><a href="https://github.com/YOUR-GITHUB-USERNAME" rel="noopener"><span>GitHub</span><small>GitHub profile</small></a></li>
+</ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Kenth Bryan C. Vales</span>
+    <span>Built with HTML and CSS. AI tools used: Claude.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var cb=document.getElementById('copy'),m=document.getElementById('msg'),t='kenth.vales@gmail.com';
+  cb.addEventListener('click',function(){
+    function done(){m.textContent='Copied';setTimeout(function(){m.textContent='Click to copy'},2000)}
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){m.textContent=t})}else{m.textContent=t}
+  });
+</script>
+</body>
+</html>
